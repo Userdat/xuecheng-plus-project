@@ -43,7 +43,6 @@ public class CourseBaseInfoController {
 
     /**
      * 新增课程
-     * @param addCourseDto
      * @return CourseBaseInfoDto
      */
     @ApiOperation("新增课程")
@@ -66,7 +65,6 @@ public class CourseBaseInfoController {
 
     /**
      * 修改课程
-     * @param editCourseDto
      * @return CourseBaseInfoDto
      */
     @ApiOperation("修改课程")
