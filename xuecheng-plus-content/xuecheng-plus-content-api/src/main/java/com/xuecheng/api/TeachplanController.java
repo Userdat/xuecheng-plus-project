@@ -3,6 +3,7 @@ package com.xuecheng.api;
 import com.xuecheng.content.model.dto.BindTeachplanMediaDto;
 import com.xuecheng.content.model.dto.SaveTeachplanDto;
 import com.xuecheng.content.model.dto.TeachplanDto;
+import com.xuecheng.content.service.TeachplanMediaService;
 import com.xuecheng.content.service.TeachplanService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -24,6 +25,9 @@ public class TeachplanController {
     @Autowired
     TeachplanService teachplanService;
 
+    @Autowired
+    TeachplanMediaService teachplanMediaService;
+
     @ApiOperation("查询课程计划树形结构")
     @ApiImplicitParam(value = "courseId",name = "课程Id",required = true,dataType = "Long",paramType = "path")
     @GetMapping("/teachplan/{courseId}/tree-nodes")
@@ -40,7 +44,7 @@ public class TeachplanController {
     @ApiOperation(value = "课程计划和媒资信息绑定")
     @PostMapping("/teachplan/association/media")
     public void associationMedia(@RequestBody BindTeachplanMediaDto bindTeachplanMediaDto){
-
+        teachplanMediaService.associationMedia(bindTeachplanMediaDto);
     }
 
 

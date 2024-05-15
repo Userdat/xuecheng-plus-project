@@ -37,7 +37,7 @@ public interface MediaFileService {
   * @param localFilePath 文件磁盘路径
   * @return 文件信息
   */
- UploadFileResultDto uploadFile(Long companyId, UploadFileParamsDto uploadFileParamsDto,String localFilePath);
+ UploadFileResultDto uploadFile(Long companyId, UploadFileParamsDto uploadFileParamsDto,String localFilePath,String objectname);
 
  MediaFiles addMediaFilesToDb(Long companyId,String fileMd5,UploadFileParamsDto uploadFileParamsDto,String bucket,String objectName);
 
@@ -101,4 +101,11 @@ public interface MediaFileService {
   * @date 2022/10/12 21:22
   */
  boolean addMediaFilesToMinIO(String localFilePath, String mimeType, String bucket, String objectName);
+
+ /**
+  * 根据媒资id查询文件信息
+  * @param mediaId
+  * @return
+  */
+ MediaFiles getFileById(String mediaId);
 }
